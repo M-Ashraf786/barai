@@ -60,8 +60,11 @@ function PostCard({ post, onLike, onDislike, onComment }) {
                         <span className="text-green-400">
                           {post?.postOwner?.clan}
                         </span>
+                       
                       )}
                     </p>
+                    <p><span className="text-red-600 font-sans text-sm">{post?.postOwner?.friendsCount} </span>
+ <span className="font-sans text-sm">{post?.postOwner?.friendsCount > 1 ? "friends" : "friend" }</span></p>
 
                     <p className="text-gray-500 text-sm font-sans">
                       {formateDate(post?.createdAt)}
@@ -70,12 +73,13 @@ function PostCard({ post, onLike, onDislike, onComment }) {
                 </div>
               </div>
               <div className="flex flex-col space-y-5">
+                 <p className="font-sans">{post?.content?.slice(0, 125)}</p> 
                 {post?.mediaUrl && post?.mediaType === "image" && (
                   <img src={post?.mediaUrl}  alt="post_image"
-                  className="w-full h-auto rounded-lg mb-4" />
+                   />
                 )}
                 {post?.mediaUrl && post?.mediaType === "video" && (
-                  <video controls className="w-full h-[400px]  mb-4">
+                  <video controls >
                     <source src={post?.mediaUrl}  type="video/mp4"/>
                     Your browser does not support the video tag
                   </video>

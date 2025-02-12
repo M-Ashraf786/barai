@@ -135,10 +135,12 @@ const NewPostForm = ({ isPostFormOpen, setIsPostFormOpen }) => {
                 </div>
               </div>
               <Textarea
+              className="font-sans min-h-[100px] text-lg"
                 placeholder={`what's on your mind? ${user?.username}`}
-                className="min-h-[100px] text-lg"
+             
                 value={postContent}
                 onChange={(e) => setPostContent(e.target.value)}
+                
               />
               <AnimatePresence>
                 {(showImageUpload || filePreview) && (

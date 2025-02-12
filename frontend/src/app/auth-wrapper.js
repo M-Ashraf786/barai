@@ -63,7 +63,7 @@ export default function AuthWrapper({ children }) {
 
   return (
     <>
-      {!isLoginPage && isAuthenticated && <Header />}
+       {!isLoginPage && isAuthenticated && <Header />} 
       {(isAuthenticated || isLoginPage) && children}
     </>
   );

@@ -15,15 +15,7 @@ function Homepage() {
     handleCommentPost,
   } = postStore();
 
-//   const getAllPosts = async()=>{
-//    const result = await fetchAllPosts();
-//    console.log("result : ",result)
-//    setRenderPosts(result)
-//   }
-//   useEffect(() => {
-//    getAllPosts()
-  
-// }, [fetchAllPosts]);
+
 
 const accessAllPosts = async()=>{
   const posts = await fetchAllPosts();

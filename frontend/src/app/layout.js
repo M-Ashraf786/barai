@@ -46,6 +46,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import AuthWrapper from "./auth-wrapper";
 
+
 import { Toaster } from "react-hot-toast";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -74,7 +75,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
           <Toaster/>
-         
+
         <AuthWrapper>
         
         {children}

@@ -37,7 +37,7 @@ const getAllPosts = async (req, res) => {
   try {
     const allPosts = await BaraiPost.find()
       .sort({ createdAt: -1 })
-      .populate("postOwner", "_id username clan profileImage")
+      .populate("postOwner", "_id username clan profileImage friendsCount")
       .populate("likingPersons", "_id username  profileImage")
       .populate("dislikingPersons", "_id username  profileImage")
       .populate({
@@ -48,7 +48,7 @@ const getAllPosts = async (req, res) => {
     if (!allPosts) {
       return response(res, 402, "getting posts failed");
     }
-    console.log("allPosts  : ",allPosts)
+   
     return response(res, 200, "Got posts successfully", allPosts);
   } catch (error) {
     return response(res, 402, "getting posts failed");
@@ -149,7 +149,7 @@ const getParticularPosts = async (req, res) => {
     }
     const particularPosts1 = await BaraiPost.find()
       .sort({ createdAt: -1 })
-      .populate("postOwner", "_id username  profileImage clan")
+      .populate("postOwner", "_id username  profileImage clan friendsCount")
       .populate("likingPersons", "_id username  profileImage")
       .populate("dislikingPersons", "_id username  profileImage")
       .populate({

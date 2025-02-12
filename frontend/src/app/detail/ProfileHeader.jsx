@@ -25,7 +25,7 @@ const ProfileHeader = ({
   const [profilePictureFile, setProfilePictureFile] = useState(null);
 
   const [loading, setLaoding] = useState(false);
-  const { setUser } = userStore();
+  const {user, setUser } = userStore();
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
@@ -45,7 +45,8 @@ const ProfileHeader = ({
   const onSubmitProfile = async (data) => {
     try {
       setLaoding(true);
-      const formData = new FormData();
+      
+        const formData = new FormData();
       formData.append("username", data.username);
       formData.append("ethnicGroup", data.ethnicGroup);
       formData.append("community", data.community);
@@ -54,6 +55,8 @@ const ProfileHeader = ({
       formData.append("countryoFOrigin", data.countryoFOrigin);
       formData.append("city", data.city);
       formData.append("liveInCountry", data.liveInCountry);
+      
+      
 
       if (profilePictureFile) {
         formData.append("profilePicture", profilePictureFile);
@@ -63,7 +66,7 @@ const ProfileHeader = ({
       setProfileData({ ...profileData, ...updateProfile });
       setIsEditProfileModel(false);
       setProfilePicturePreview(null);
-      setUser(updateProfile);
+     user, setUser(updateProfile);
       await fetchProfile();
     } catch (error) {
       console.error("error updating user profile", error);

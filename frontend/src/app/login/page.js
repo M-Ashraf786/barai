@@ -107,13 +107,15 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center p-4">
+     <div className="min-h-screen bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center p-4">
+   
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
         <Card className="w-full max-w-md dark:text-white">
+        
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-center">
               <span>BARAI</span>
@@ -138,7 +140,7 @@ const Page = () => {
                 <TabsTrigger value="signup">Sign Up</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="login">
+              <TabsContent value="login" className="font-sans">
                 <form onSubmit={handleSubmitLogin(onSubmitLogin)}>
                   <div className="space-y-4">
                     <div className="space-y-2">
@@ -179,7 +181,7 @@ const Page = () => {
                   </div>
                 </form>
               </TabsContent>
-              <TabsContent value="signup">
+              <TabsContent value="signup" className="font-sans">
                 <form onSubmit={handleSubmitSignUp(onSubmitRegister)}>
                   <div className="space-y-4">
                     <div className="space-y-2">
@@ -230,73 +232,7 @@ const Page = () => {
                         </p>
                       )}
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="signupCaste">Caste</Label>
-                      <Input
-                        id="signupCaste"
-                        name="caste"
-                        type="text"
-                        {...registerSignUp("caste")}
-                        placeholder="e.g Barai"
-                        className="col-span-3 dark:border-gray-400"
-                      />
-                      {errorsSignUp.caste && (
-                        <p className="text-red-500">
-                          {errorsSignUp.caste.message}
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="signupSubgroup">Subgroup</Label>
-                      <Input
-                        id="signupSubgroup"
-                        name="subgroup"
-                        type="text"
-                        {...registerSignUp("subgroup")}
-                        placeholder="e.g Dukka"
-                        className="col-span-3 dark:border-gray-400"
-                      />
-                      {errorsSignUp.subgroup && (
-                        <p className="text-red-500">
-                          {errorsSignUp.subgroup.message}
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="signupCountry">Country</Label>
-                      <Input
-                        id="signupCountry"
-                        name="country"
-                        type="text"
-                        {...registerSignUp("country")}
-                        placeholder="Enter your country"
-                        className="col-span-3 dark:border-gray-400"
-                      />
-                      {errorsSignUp.country && (
-                        <p className="text-red-500">
-                          {errorsSignUp.coutry.message}
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="signupCountry">City</Label>
-                      <Input
-                        id="signupCity"
-                        name="city"
-                        type="text"
-                        {...registerSignUp("city")}
-                        placeholder="Enter your city"
-                        className="col-span-3 dark:border-gray-400"
-                      />
-                      {errorsSignUp.city && (
-                        <p className="text-red-500">
-                          {errorsSignUp.city.message}
-                        </p>
-                      )}
-                    </div>
+                   
 
                     <Button className="w-full" type="submit">
                       <LogIn className="mr-2 w-4 h-4" /> Sign Up

@@ -19,9 +19,9 @@ function Header() {
     setUser(updatedStore);
   };
 
-  // useEffect(() => {
-  //   localStorage();
-  // }, [friendRequests]);
+  useEffect(() => {
+    localStorage();
+  }, [friendRequests]);
 
   const router = useRouter();
 

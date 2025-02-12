@@ -186,12 +186,7 @@ const excludeFriend = async (req, res) => {
 const checkUserAuth = async (req, res) => {
   try {
     const userId = req?.user?.userId;
-    if (!userId)
-      return response(
-        res,
-        404,
-        "unauthenticated ! please login before access the data"
-      );
+    if (!userId) return response(res,404,"unauthenticated ! please login before access the data");
 
     //fetch the user details and excude sensitive information
     //    const user = await BaraiUser.findById(userId).select('-password _id');
