@@ -17,6 +17,17 @@ app.use(cookieParser());
 const corsOptions = {
     origin:process.env.FRONTEND_URL,
     credentials:true,
+  
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Cache-Control",
+      "pragma", // Added pragma to allowed headers
+    ],
+    exposedHeaders: ["Content-Range", "X-Content-Range"],
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
 }
 app.use(cors(corsOptions))
 
