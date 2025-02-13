@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const serverless = require("serverless-http"); // Add this for Vercel support
+const serverless = require("serverless-http"); // Add this for Vercel
 
 const connectDb = require("./config/db");
 require("dotenv").config();
@@ -32,7 +32,7 @@ app.use("/userCollection", userRoute);
 app.use("/postCollection", postRoute);
 app.use("/members", memberRoute);
 
-// Export the server as a serverless function
+// Export for Vercel
 module.exports = app;
 module.exports.handler = serverless(app);
 
