@@ -6,7 +6,7 @@ import { postStore } from "@/store/postStore";
 import NewPostForm from "../posts/NewPostForm";
 function Homepage() {
   const [isPostFormOpen, setIsPostFormOpen] = useState(false);
-  const [renderPosts, setRenderPosts] = useState([])
+ 
   const {
     allPosts,
     fetchAllPosts,
@@ -18,15 +18,18 @@ function Homepage() {
 
 
 const accessAllPosts = async()=>{
-  const posts = await fetchAllPosts();
-  setRenderPosts(posts);
+  
+  await fetchAllPosts();
+  
+  
 }
 
 useEffect(()=>{
   accessAllPosts();
 // },[fetchAllPosts])
 // deployment change 1 above to down
-},[])
+},[allPosts])
+// if I doesn't give allPosts dependency in above useEffect,new post doesn't instant show username and no of friends count without reload
 
   const handleLike = async (postId) => {
     try {
@@ -56,8 +59,8 @@ useEffect(()=>{
           />
           {
             
-            allPosts?.map((post, index) => (
-              // allPosts?.map((post, index) => (
+             allPosts?.map((post, index) => (
+              
                 
                   <PostCard
                   key={index}

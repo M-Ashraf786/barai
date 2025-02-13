@@ -55,7 +55,7 @@ function PostCard({ post, onLike, onDislike, onComment }) {
                   </Avatar>
 
                   <div>
-                    <p className="font-sans text-black font-medium">
+                    <p className="font-sans text-black font-medium"> 
                       {post?.postOwner?.username} {post?.postOwner?.clan && (
                         <span className="text-green-400">
                           {post?.postOwner?.clan}

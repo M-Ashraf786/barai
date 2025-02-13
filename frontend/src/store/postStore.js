@@ -56,10 +56,10 @@ export const postStore = create((set) => ({
             : post
         ),
       }));
-      //   toast.success("Comments added successfully");
+      
     } catch (error) {
       set({ error, loading: false });
-      // toast.error("failed to add comments");
+      
     }
   },
 
@@ -68,7 +68,7 @@ export const postStore = create((set) => ({
     try {
       const newPost = await createPost(postData);
       set((state) => ({
-        allPosts: [newPost, ...state.allPosts],
+        allPosts: [newPost,...state.allPosts],
        
         loading: false,
       }));
